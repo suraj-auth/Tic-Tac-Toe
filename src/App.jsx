@@ -2,12 +2,14 @@ import React, { useRef, useState } from "react";
 import Box from "./components/Box";
 import cancel_img from "./assets/cancel.svg";
 import Button from "./components/Button";
+import myaudio from "./assets/click.wav";
 const App = () => {
   const [count, setCount] = useState(0);
   const [lock, setLock] = useState(true);
   const [arr, setArr] = useState(["", "", "", "", "", "", "", "", ""]);
   const ref1 = useRef();
   const ref2 = useRef();
+  const ref3 = useRef();
   function io(value) {
     ref2.current.play();
     setLock(false);
@@ -34,16 +36,18 @@ const App = () => {
         arr[i] = "O";
         setCount((c) => c + 1);
       }
+      ref3.current.playbackRate = 1.5;
+      ref3.current.play();
     }
     if (count >= 4) winner();
   }
   return (
     <div className="h-screen w-screen bg-slate-950">
-      <div className="lg:h-5/6 lg:w-2/6 sm:h-5/6 sm:w-5/6 h-full w-full border-2 border-slate-500 m-auto flex items-center justify-center flex-col gap-4">
+      <div className="lg:h-5/6 lg:w-2/6 sm:h-5/6 sm:w-5/6 h-full w-full border-2 border-slate-500 m-auto flex items-center justify-center flex-col lg:gap-4 sm:gap-4 gap-8">
         <h1 ref={ref1} className="text-4xl font-bold text-white">
           Tic Tac Toe <span className="text-cyan-300">React</span>
         </h1>
-        <div className="h-4/6 w-5/6 grid grid-cols-3 grid-rows-3">
+        <div className="lg:h-4/6 lg:w-5/6 sm:h-4/6 sm:w-5/6 h-3/6 w-5/6 grid grid-cols-3 grid-rows-3">
           <Box tog={toggle} index={0} />
           <Box tog={toggle} index={1} />
           <Box tog={toggle} index={2} />
@@ -61,6 +65,7 @@ const App = () => {
         className="hidden"
         src="https://audio-previews.elements.envatousercontent.com/files/422328080/preview.mp3?response-content-disposition=attachment%3B+filename%3D%22SCNB3LA-winning.mp3%22"
       ></audio>
+      <audio ref={ref3} className="hidden" src={myaudio}></audio>
     </div>
   );
 };
