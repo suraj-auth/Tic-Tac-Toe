@@ -44,7 +44,7 @@ const App = () => {
   return (
     <div className="h-screen w-screen bg-slate-950">
       <div className="lg:h-5/6 lg:w-2/6 sm:h-5/6 sm:w-5/6 h-full w-full border-2 border-slate-500 m-auto flex items-center justify-center flex-col lg:gap-4 sm:gap-4 gap-8">
-        <h1 ref={ref1} className="text-4xl font-bold text-white">
+        <h1 ref={ref1} className="text-4xl mb-10 font-bold text-white">
           Tic Tac Toe <span className="text-cyan-300">React</span>
         </h1>
         <div className="lg:h-4/6 lg:w-5/6 sm:h-4/6 sm:w-5/6 h-3/6 w-5/6 grid grid-cols-3 grid-rows-3">
