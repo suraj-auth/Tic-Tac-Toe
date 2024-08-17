@@ -6,7 +6,7 @@ const Button = () => {
       onClick={() => {
         window.location.reload();
       }}
-      className="text-cyan-100 bg-slate-900 h-14 w-40 rounded-3xl"
+      className="text-cyan-100 mt-10 bg-slate-900 h-14 w-40 rounded-3xl"
     >
       Reset
     </button>
